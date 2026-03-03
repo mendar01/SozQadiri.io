@@ -5,6 +5,135 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ғылыми жоба - Мәшһүр Жүсіп</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Ғылыми жоба бетіне арналған қосымша стильдер */
+        .project-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-subtitle {
+            color: #5D4037;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: -10px;
+            font-style: italic;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        /* Жоба карточкалары */
+        .project-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #C89F59;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(93, 64, 55, 0.1);
+        }
+
+        .project-card h3 {
+            color: #3E2723;
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-card p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Міндеттер тізімі (Қадамдар) */
+        .tasks-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tasks-list li {
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 15px;
+            color: #4a4a4a;
+            line-height: 1.5;
+        }
+
+        .tasks-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #5D4037;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Жүктеу баннері */
+        .download-banner {
+            background: #FAF8F5;
+            border: 1px solid #eaeaeb;
+            border-left: 6px solid #5D4037;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .download-banner h3 {
+            color: #3E2723;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .download-banner p {
+            color: #64748b;
+            margin-bottom: 25px;
+        }
+
+        .btn-download {
+            background-color: #5D4037;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            background-color: #3E2723;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(93, 64, 55, 0.2);
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -28,26 +157,54 @@
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">Ғылыми жоба туралы</h2>
         
-        <div class="card" style="margin-bottom: 2rem;">
-            <h3>Жобаның мақсаты</h3>
-            <p>Мәшһүр Жүсіп Көпейұлының «Ғибратнама» шығармасын жастарға заманауи үлгіде, жаңа технологиялар (сайт, AI бейне, комикс) арқылы дәріптеу және оның философиялық мәнін ашып көрсету.</p>
+        <div class="project-header">
+            <h2 class="page-title">Ғылыми жоба туралы</h2>
+            <p class="project-subtitle">Тақырыбы: «Мәшһүр Жүсіп мұрасын заманауи сандық технологиялар арқылы дәріптеу»</p>
         </div>
 
-        <div class="card" style="margin-bottom: 2rem;">
-            <h3>Нәтижелер (Сайт пен Комикс)</h3>
-            <p>Зерттеу барысында шығармадағы бұлбұл мен қаршыға бейнелеріне талдау жасалып, оның визуалды нұсқасы ретінде 17 беттік комикс салынды. Сонымен қатар, осы веб-сайт әзірленді.</p>
+        <div class="project-grid">
+            <div class="project-card">
+                <h3>💡 Тақырыптың өзектілігі</h3>
+                <p>Қазіргі таңда жастардың дәстүрлі кітап оқуға деген қызығушылығы төмендеген. Мәшһүр Жүсіптің терең философиялық еңбектерін жас ұрпаққа түсінікті тілде, заманауи форматта (веб-сайт, визуалды комикс, интерактивті элементтер) ұсыну — ұлттық құндылықтарды сақтап қалудың тиімді жолы.</p>
+            </div>
+
+            <div class="project-card">
+                <h3>🎯 Жобаның мақсаты</h3>
+                <p>Мәшһүр Жүсіп Көпейұлының «Ғибратнама» шығармасын жаңа технологиялар (сайт, AI бейне, комикс) арқылы дәріптеу және оның ішіндегі «бұлбұл мен қаршыға» диалогінің философиялық мәнін визуалды түрде ашып көрсету.</p>
+            </div>
         </div>
 
-        <div style="text-align: center;">
-            <a href="assets/docs/zhoba.pdf" class="btn" download>Жобаның толық мәтінін жүктеу (PDF)</a>
+        <div class="project-grid">
+            <div class="project-card" style="border-top-color: #5D4037;">
+                <h3>📋 Жобаның міндеттері</h3>
+                <ul class="tasks-list">
+                    <li>Ақынның өмірі мен «Ғибратнама» шығармасына ғылыми талдау жасау;</li>
+                    <li>Шығарманың негізгі идеясын ашатын 17 беттік комикс сюжетін құрастыру және сызу;</li>
+                    <li>Жастарға ыңғайлы, қолжетімді, көпфункциялы арнайы веб-сайт әзірлеу (HTML/CSS/JS);</li>
+                    <li>Ақынның нақыл сөздерін бір жүйеге келтіріп, цифрлық базасын жасау.</li>
+                </ul>
+            </div>
+
+            <div class="project-card" style="border-top-color: #5D4037;">
+                <h3>🚀 Практикалық маңызы (Нәтиже)</h3>
+                <p>Дайын болған веб-сайт пен комиксті мектептегі қазақ әдебиеті сабақтарында, сынып сағаттарында қосымша материал ретінде қолдануға болады. Жоба Мәшһүр Жүсіп мұрасын тек оқып қана қоймай, көзбен көріп, интерактивті түрде сезінуге мүмкіндік береді.</p>
+            </div>
         </div>
+
+        <div class="download-banner">
+            <h3>Зерттеу жұмысының толық нұсқасы</h3>
+            <p>Жобаның толық ғылыми мәтінімен, зерттеу әдістерімен және қолданылған әдебиеттер тізімімен танысу үшін төмендегі батырманы басыңыз.</p>
+            <a href="assets/docs/zhoba.pdf" class="btn-download" download>
+                📄 Ғылыми жобаны жүктеу (PDF)
+            </a>
+        </div>
+
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Темиржанов Дармен. Ұлттық гимназия. </p>
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
