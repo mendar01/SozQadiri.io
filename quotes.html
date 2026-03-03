@@ -5,6 +5,134 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Дәйексөздер - Мәшһүр Жүсіп</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Дәйексөздер бетіне арналған стильдер */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            background-color: #FAF8F5;
+            color: #5D4037;
+            border: 1px solid #C89F59;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #5D4037;
+            color: #ffffff;
+            border-color: #5D4037;
+        }
+
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .quote-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid #C89F59;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease;
+        }
+
+        .quote-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(93, 64, 55, 0.1);
+        }
+
+        .quote-text {
+            font-size: 1.1rem;
+            color: #3E2723;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .quote-text::before {
+            content: "«";
+            font-size: 1.5rem;
+            color: #C89F59;
+            font-family: serif;
+        }
+        
+        .quote-text::after {
+            content: "»";
+            font-size: 1.5rem;
+            color: #C89F59;
+            font-family: serif;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quote-tag {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .copy-btn {
+            background: none;
+            border: none;
+            color: #5D4037;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
+        }
+
+        .copy-btn:hover {
+            color: #C89F59;
+        }
+
+        /* Көшірілді деген хабарлама үшін */
+        .toast-msg {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #3E2723;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 1000;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        .toast-msg.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -28,54 +156,160 @@
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">Нақыл сөздері</h2>
+        <h2 class="page-title" style="text-align: center;">Мәшһүр Жүсіптің нақыл сөздері</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Ойшылдың терең философиялық толғаулары</p>
         
         <div class="filter-container">
             <button class="filter-btn active" data-filter="all">Барлығы</button>
             <button class="filter-btn" data-filter="soz">Сөз</button>
-            <button class="filter-btn" data-filter="ar">Ар</button>
+            <button class="filter-btn" data-filter="ar">Ар-Иман</button>
             <button class="filter-btn" data-filter="murat">Мұрат</button>
             <button class="filter-btn" data-filter="zaman">Заман</button>
+            <button class="filter-btn" data-filter="bilim">Білім</button>
         </div>
 
-        <div>
-            <div class="quote-card" data-category="soz">
-                <button class="copy-btn">Көшіру</button>
-                <div class="quote-text">«Сөз түзелді, тыңдаушы, сен де түзел.»</div>
-                <span class="quote-tag">#Сөз</span>
-            </div>
+        <div class="quotes-grid" id="quotes-container">
             
-            <div class="quote-card" data-category="ar">
-                <button class="copy-btn">Көшіру</button>
-                <div class="quote-text">«Малым – жанымның садағасы, жаным – арымның садағасы.»</div>
-                <span class="quote-tag">#Ар</span>
+            <div class="quote-card" data-category="soz">
+                <div class="quote-text">Қызыл тілден қырық түрлі дерт табарсың, қызыл тілден қырық түрлі ем табарсың.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Сөз</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
             </div>
 
             <div class="quote-card" data-category="zaman">
-                <button class="copy-btn">Көшіру</button>
-                <div class="quote-text">«Заманақыр боларда, адамның пиғылы бұзылар.»</div>
-                <span class="quote-tag">#Заман</span>
+                <div class="quote-text">Заманақыр боларда, адамның пиғылы бұзылар.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Заман</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
             </div>
 
             <div class="quote-card" data-category="murat">
-                <button class="copy-btn">Көшіру</button>
-                <div class="quote-text">«Ердің мұраты – еліне қызмет ету.»</div>
-                <span class="quote-tag">#Мұрат</span>
+                <div class="quote-text">Адам болып туған соң, адам болып өту – парыз.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Мұрат</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
             </div>
-            
+
             <div class="quote-card" data-category="soz">
-                <button class="copy-btn">Көшіру</button>
-                <div class="quote-text">«Қызыл тілден қырық түрлі дерт табарсың, қызыл тілден қырық түрлі ем табарсың.»</div>
-                <span class="quote-tag">#Сөз</span>
+                <div class="quote-text">Тіл жүректің айтқанына көнсе – қасиет, нәпсінің айтқанына көнсе – қасірет.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Сөз</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
             </div>
+
+            <div class="quote-card" data-category="ar">
+                <div class="quote-text">Құдайды тапқан адам өзін де табады, өзін таныған адам хақты таниды.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Ар-Иман</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
+            <div class="quote-card" data-category="zaman">
+                <div class="quote-text">Заман азды деп налыма, заманды аздырған адамның өзі.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Заман</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
+            <div class="quote-card" data-category="bilim">
+                <div class="quote-text">Оқусыз білім жоқ, білімсіз күнің жоқ. Ғылымсыз адам – айсыз түнмен тең.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Білім</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
+            <div class="quote-card" data-category="soz">
+                <div class="quote-text">Сөзді ұғатын адамға айт, ұқпайтынға қайт.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Сөз</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
+            <div class="quote-card" data-category="murat">
+                <div class="quote-text">Екі дүниенің абаттығы — ердің екі табан етінде.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Мұрат</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
+            <div class="quote-card" data-category="zaman">
+                <div class="quote-text">Бұл заманның адамының көзінде нұр жоқ, көңілінде сыр жоқ.</div>
+                <div class="card-footer">
+                    <span class="quote-tag">#Заман</span>
+                    <button class="copy-btn">📋 Көшіру</button>
+                </div>
+            </div>
+
         </div>
     </main>
+
+    <div id="copy-toast" class="toast-msg">Мәтін көшірілді! ✔️</div>
 
     <footer>
         <div class="container">
             <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
         </div>
     </footer>
+
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const quoteCards = document.querySelectorAll('.quote-card');
+            const copyBtns = document.querySelectorAll('.copy-btn');
+            const toast = document.getElementById('copy-toast');
+
+            // 1. Фильтрлеу логикасы
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Белсенді батырманы өзгерту
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    // Карточкаларды көрсету/жасыру
+                    quoteCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'flex';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // 2. Көшіру логикасы
+            copyBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    // Батырма тұрған карточканың ішінен тексті табу
+                    const card = e.target.closest('.quote-card');
+                    const textToCopy = card.querySelector('.quote-text').innerText;
+
+                    // Буферге көшіру
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        // Хабарлама шығару
+                        toast.classList.add('show');
+                        setTimeout(() => {
+                            toast.classList.remove('show');
+                        }, 2500);
+                    }).catch(err => {
+                        console.error('Көшіру қатесі: ', err);
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
