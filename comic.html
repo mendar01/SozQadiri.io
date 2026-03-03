@@ -3,45 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Комикс - Мәшһүр Жүсіп</title>
+    <title>Комикстер - Мәшһүр Жүсіп</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Комикс суреттерінің торы (Сетка комикса) */
-        .comic-grid {
+        /* Комикс мұқабаларының торы (Сетка обложек) */
+        .covers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 30px;
             margin-top: 30px;
         }
 
-        .comic-item {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        /* Мұқаба карточкасы (Карточка комикса) */
+        .cover-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            object-fit: cover;
-            aspect-ratio: 1 / 1.4; /* Стандартная пропорция комикса */
-            border: 2px solid transparent;
+            border: 1px solid #eaeaeb;
+            display: flex;
+            flex-direction: column;
         }
 
-        .comic-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            border-color: #2563eb; /* Синяя рамка при наведении */
+        .cover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(93, 64, 55, 0.15);
         }
+
+        .cover-img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-bottom: 4px solid #5D4037; /* Қоңыр сызық */
+            transition: opacity 0.3s;
+        }
+
+        /* Белсенді емес комикстердің суретін сұрғылт ету */
+        .cover-card.disabled .cover-img {
+            filter: grayscale(80%);
+            opacity: 0.8;
+            border-bottom: 4px solid #9ca3af;
+        }
+
+        .cover-info {
+            padding: 20px;
+            text-align: center;
+            background: #FAF8F5; /* Ашық беж фон */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cover-title {
+            margin: 0 0 10px 0;
+            color: #3E2723;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .cover-status {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .status-active { color: #166534; } /* Жасыл - оқуға дайын */
+        .status-soon { color: #64748b; } /* Сұр - жақында */
 
         /* Лайтбокс (Всплывающее окно) */
         .lightbox {
-            display: none; /* Бастапқыда жасырын */
+            display: none;
             position: fixed;
             z-index: 9999;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(15, 23, 42, 0.95); /* Темный фон с небольшим блюром */
+            background-color: rgba(30, 20, 15, 0.95); /* Қоңыр-қараңғы фон */
             backdrop-filter: blur(5px);
             flex-direction: column;
             align-items: center;
@@ -59,10 +99,11 @@
             max-width: 90%;
             max-height: 80vh;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
             margin-bottom: 20px;
             user-select: none;
             animation: zoomIn 0.3s ease;
+            object-fit: contain;
         }
 
         @keyframes zoomIn {
@@ -82,9 +123,7 @@
             line-height: 1;
         }
 
-        .lb-close:hover {
-            color: #ef4444; /* Красный при наведении */
-        }
+        .lb-close:hover { color: #ef4444; }
 
         /* Басқару батырмалары (Панель управления) */
         .lightbox-controls {
@@ -97,7 +136,7 @@
         }
 
         .lb-btn {
-            background-color: #2563eb;
+            background-color: #5D4037; /* Классикалық қоңыр */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -108,13 +147,8 @@
             transition: background 0.3s, transform 0.1s;
         }
 
-        .lb-btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        .lb-btn:active {
-            transform: scale(0.95);
-        }
+        .lb-btn:hover { background-color: #3E2723; }
+        .lb-btn:active { transform: scale(0.95); }
 
         #lb-counter {
             color: white;
@@ -122,6 +156,31 @@
             font-weight: 500;
             min-width: 90px;
             text-align: center;
+        }
+
+        /* Хабарлама (Toast) */
+        #toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #3E2723;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px 24px;
+            position: fixed;
+            z-index: 9999;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
         }
     </style>
 </head>
@@ -147,29 +206,65 @@
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">«Ғибратнама» комиксі</h2>
-        <p style="text-align: center; margin-bottom: 2rem; color: #64748b;">Суретті үлкейтіп көру үшін үстіне басыңыз.</p>
+        <h2 class="page-title" style="text-align: center;">Комикстер кітапханасы</h2>
+        <p style="text-align: center; margin-bottom: 2rem; color: #5D4037;">Мәшһүр Жүсіптің еңбектері жаңа форматта</p>
         
-        <div class="comic-grid">
-            <img src="assets/img/comic/01.jpg" alt="Бет 1" class="comic-item">
-            <img src="assets/img/comic/02.jpg" alt="Бет 2" class="comic-item">
-            <img src="assets/img/comic/03.jpg" alt="Бет 3" class="comic-item">
-            <img src="assets/img/comic/04.jpg" alt="Бет 4" class="comic-item">
-            <img src="assets/img/comic/05.jpg" alt="Бет 5" class="comic-item">
-            <img src="assets/img/comic/06.jpg" alt="Бет 6" class="comic-item">
-            <img src="assets/img/comic/07.jpg" alt="Бет 7" class="comic-item">
-            <img src="assets/img/comic/08.jpg" alt="Бет 8" class="comic-item">
-            <img src="assets/img/comic/09.jpg" alt="Бет 9" class="comic-item">
-            <img src="assets/img/comic/10.jpg" alt="Бет 10" class="comic-item">
-            <img src="assets/img/comic/11.jpg" alt="Бет 11" class="comic-item">
-            <img src="assets/img/comic/12.jpg" alt="Бет 12" class="comic-item">
-            <img src="assets/img/comic/13.jpg" alt="Бет 13" class="comic-item">
-            <img src="assets/img/comic/14.jpg" alt="Бет 14" class="comic-item">
-            <img src="assets/img/comic/15.jpg" alt="Бет 15" class="comic-item">
-            <img src="assets/img/comic/16.jpg" alt="Бет 16" class="comic-item">
-            <img src="assets/img/comic/17.jpg" alt="Бет 17" class="comic-item">
+        <div class="covers-grid">
+            
+            <div class="cover-card" id="open-gibratnama">
+                <img src="assets/img/comic/01.jpg" alt="Ғибратнама" class="cover-img">
+                <div class="cover-info">
+                    <h3 class="cover-title">Ғибратнама</h3>
+                    <span class="cover-status status-active">📖 Оқу (17 бет)</span>
+                </div>
+            </div>
+
+            <div class="cover-card disabled" onclick="showToast()">
+                <img src="assets/img/comic/02.jpg" alt="Патша мен уәзір" class="cover-img">
+                <div class="cover-info">
+                    <h3 class="cover-title">Патша мен уәзір</h3>
+                    <span class="cover-status status-soon">⏳ Жақында қосылады</span>
+                </div>
+            </div>
+
+            <div class="cover-card disabled" onclick="showToast()">
+                <img src="assets/img/comic/03.jpg" alt="Шайтанның саудасы" class="cover-img">
+                <div class="cover-info">
+                    <h3 class="cover-title">Шайтанның саудасы</h3>
+                    <span class="cover-status status-soon">⏳ Жақында қосылады</span>
+                </div>
+            </div>
+
+             <div class="cover-card disabled" onclick="showToast()">
+                <img src="assets/img/comic/04.jpg" alt="Байлық пен ақыл" class="cover-img">
+                <div class="cover-info">
+                    <h3 class="cover-title">Байлық пен ақыл</h3>
+                    <span class="cover-status status-soon">⏳ Жақында қосылады</span>
+                </div>
+            </div>
+
         </div>
     </main>
+
+    <div id="gibratnama-data" style="display: none;">
+        <img src="assets/img/comic/01.jpg">
+        <img src="assets/img/comic/02.jpg">
+        <img src="assets/img/comic/03.jpg">
+        <img src="assets/img/comic/04.jpg">
+        <img src="assets/img/comic/05.jpg">
+        <img src="assets/img/comic/06.jpg">
+        <img src="assets/img/comic/07.jpg">
+        <img src="assets/img/comic/08.jpg">
+        <img src="assets/img/comic/09.jpg">
+        <img src="assets/img/comic/10.jpg">
+        <img src="assets/img/comic/11.jpg">
+        <img src="assets/img/comic/12.jpg">
+        <img src="assets/img/comic/13.jpg">
+        <img src="assets/img/comic/14.jpg">
+        <img src="assets/img/comic/15.jpg">
+        <img src="assets/img/comic/16.jpg">
+        <img src="assets/img/comic/17.jpg">
+    </div>
 
     <div class="lightbox" id="lightbox">
         <span class="lb-close" id="lb-close">&times;</span>
@@ -181,17 +276,32 @@
         </div>
     </div>
 
+    <div id="toast">Бұл комикс жақында қосылады ⏳</div>
+
     <footer>
         <div class="container">
-            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Темиржанов Дармен. Ұлттық гимназия.</p>
         </div>
     </footer>
 
     <script src="assets/js/main.js"></script>
     
     <script>
+        // Хабарлама (Toast) функциясы
+        function showToast() {
+            const toast = document.getElementById("toast");
+            toast.className = "show";
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3000);
+        }
+
+        // Лайтбокс логикасы
         document.addEventListener('DOMContentLoaded', function() {
-            const comicItems = document.querySelectorAll('.comic-item');
+            // Ғибратнама суреттерін жасырын блоктан аламыз
+            const gibratnamaImages = document.querySelectorAll('#gibratnama-data img');
+            const gibratnamaBtn = document.getElementById('open-gibratnama');
+            
             const lightbox = document.getElementById('lightbox');
             const lbImg = document.getElementById('lb-img');
             const lbClose = document.getElementById('lb-close');
@@ -200,47 +310,43 @@
             const lbCounter = document.getElementById('lb-counter');
             
             let currentIndex = 0;
-            const totalItems = comicItems.length;
+            const totalItems = gibratnamaImages.length;
 
             // Функция обновления лайтбокса
             function updateLightbox(index) {
-                if (index < 0) index = totalItems - 1; // Возврат в конец
-                if (index >= totalItems) index = 0;    // Возврат в начало
+                if (index < 0) index = totalItems - 1; 
+                if (index >= totalItems) index = 0;    
                 
                 currentIndex = index;
-                lbImg.src = comicItems[currentIndex].src;
+                // Суреттің src жолын аламыз
+                lbImg.src = gibratnamaImages[currentIndex].src;
                 lbCounter.textContent = `Бет: ${currentIndex + 1}/${totalItems}`;
             }
 
-            // Открытие при клике на картинку
-            comicItems.forEach((item, index) => {
-                item.addEventListener('click', () => {
-                    updateLightbox(index);
-                    lightbox.classList.add('show');
-                    document.body.style.overflow = 'hidden'; // Убираем скролл страницы
-                });
+            // «Ғибратнама» мұқабасын басқан кезде лайтбоксты ашу (1-ші беттен бастап)
+            gibratnamaBtn.addEventListener('click', () => {
+                updateLightbox(0);
+                lightbox.classList.add('show');
+                document.body.style.overflow = 'hidden'; 
             });
 
-            // Закрытие
+            // Жабу
             function closeLightbox() {
                 lightbox.classList.remove('show');
-                document.body.style.overflow = 'auto'; // Возвращаем скролл
+                document.body.style.overflow = 'auto'; 
             }
 
             lbClose.addEventListener('click', closeLightbox);
             
-            // Закрытие при клике на пустой фон
             lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
+                if (e.target === lightbox) closeLightbox();
             });
 
             // Кнопки Вперед/Назад
             lbPrev.addEventListener('click', () => updateLightbox(currentIndex - 1));
             lbNext.addEventListener('click', () => updateLightbox(currentIndex + 1));
 
-            // Управление с клавиатуры (Стрелки и Esc)
+            // Управление с клавиатуры
             document.addEventListener('keydown', (e) => {
                 if (!lightbox.classList.contains('show')) return;
                 
