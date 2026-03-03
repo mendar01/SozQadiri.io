@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="kk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наши Работы</title>
+    <title>Мәшһүр Жүсіп - Шығармалары</title>
     <style>
-        /* Базовые стили для красоты */
+        /* Базовые стили */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f3f4f6;
-            color: #1f2937;
+            background-color: #f8fafc;
+            color: #1e293b;
             margin: 0;
             padding: 40px 20px;
         }
@@ -22,14 +22,21 @@
         .section-title {
             text-align: center;
             font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #0f172a;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #64748b;
             margin-bottom: 40px;
-            color: #111827;
         }
 
         /* Сетка работ */
         .works-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
         }
 
@@ -43,6 +50,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            border-top: 4px solid #2563eb; /* Небольшой акцент сверху карточки */
         }
 
         .work-card:hover {
@@ -54,21 +62,22 @@
             font-size: 1.25rem;
             font-weight: 600;
             margin: 0 0 10px 0;
+            color: #1e293b;
         }
 
         .work-desc {
-            color: #6b7280;
+            color: #475569;
             font-size: 0.95rem;
             margin-bottom: 24px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        /* Кнопка в стиле Gibratnama */
+        /* Идентичные кнопки Gibratnama */
         .btn-gibratnama {
             display: inline-block;
             width: 100%;
             padding: 12px 0;
-            background-color: #2563eb; /* Основной синий цвет */
+            background-color: #2563eb; 
             color: #ffffff;
             text-align: center;
             text-decoration: none;
@@ -86,22 +95,22 @@
             box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
-        /* Стиль для кнопки недоступного проекта */
+        /* Кнопка для недобавленных вещей */
         .btn-gibratnama.coming-soon {
-            background-color: #e5e7eb;
-            color: #6b7280;
+            background-color: #e2e8f0;
+            color: #64748b;
             box-shadow: none;
         }
 
         .btn-gibratnama.coming-soon:hover {
-            background-color: #d1d5db;
+            background-color: #cbd5e1;
         }
 
-        /* Красивое уведомление (Toast) */
+        /* Уведомление на казахском */
         #toast {
             visibility: hidden;
             min-width: 250px;
-            background-color: #1f2937;
+            background-color: #1e293b;
             color: #fff;
             text-align: center;
             border-radius: 12px;
@@ -128,54 +137,50 @@
 <body>
 
     <div class="container">
-        <h2 class="section-title">Наши проекты</h2>
+        <h2 class="section-title">Мәшһүр Жүсіптің еңбектері</h2>
+        <p class="section-subtitle">Ұлы ойшылдың мұрасымен танысыңыз</p>
         
         <div class="works-grid">
             <div class="work-card">
                 <div>
-                    <h3 class="work-title">Gibratnama App</h3>
-                    <p class="work-desc">Образовательное мобильное приложение с видео-уроками и тестами.</p>
+                    <h3 class="work-title">Өлеңдері мен дастандары</h3>
+                    <p class="work-desc">Ақынның қоғам, өмір, дін және адамгершілік туралы жазған лирикалық туындылары.</p>
                 </div>
-                <a href="#" class="btn-gibratnama">Толық көру (Смотреть)</a>
+                <a href="#" class="btn-gibratnama">Оқу (Читать)</a>
             </div>
 
             <div class="work-card">
                 <div>
-                    <h3 class="work-title">Интернет-магазин</h3>
-                    <p class="work-desc">Современная e-commerce платформа с онлайн-оплатой и корзиной.</p>
+                    <h3 class="work-title">Тарихи шежірелер</h3>
+                    <p class="work-desc">Қазақ руларының шығу тегі мен тарихы туралы жинақтаған құнды мәліметтері.</p>
                 </div>
-                <a href="#" class="btn-gibratnama">Толық көру (Смотреть)</a>
+                <a href="#" class="btn-gibratnama">Оқу (Читать)</a>
             </div>
 
             <div class="work-card">
                 <div>
-                    <h3 class="work-title">Секретный проект X</h3>
-                    <p class="work-desc">Инновационная CRM-система для автоматизации бизнеса. В процессе разработки.</p>
+                    <h3 class="work-title">Діни-философиялық толғаулары</h3>
+                    <p class="work-desc">Ислам діні мен қазақ дүниетанымын ұштастырған терең философиялық еңбектері.</p>
                 </div>
-                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу</button>
+                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу (Открыть)</button>
             </div>
 
             <div class="work-card">
                 <div>
-                    <h3 class="work-title">AI Генератор</h3>
-                    <p class="work-desc">Нейросеть для генерации креативного контента. Скоро релиз.</p>
+                    <h3 class="work-title">Ауыз әдебиеті үлгілері</h3>
+                    <p class="work-desc">Ел аузынан жинап, хатқа түсірген ертегілер, аңыздар мен мақал-мәтелдер жинағы.</p>
                 </div>
-                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу</button>
+                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу (Открыть)</button>
             </div>
         </div>
     </div>
 
-    <div id="toast">Жақында қосылады 🚀</div>
+    <div id="toast">Бұл бөлім жақында қосылады ⏳</div>
 
     <script>
-        // Функция для показа уведомления
         function showToast() {
             const toast = document.getElementById("toast");
-            
-            // Добавляем класс для показа
             toast.className = "show";
-            
-            // Прячем уведомление через 3 секунды
             setTimeout(function(){ 
                 toast.className = toast.className.replace("show", ""); 
             }, 3000);
