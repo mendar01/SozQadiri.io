@@ -4,17 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ақын туралы - Мәшһүр Жүсіп</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css?v=3">
 </head>
 <body>
     <header>
         <div class="container">
             <a href="index.html" class="logo">Мәшһүр Жүсіп</a>
-            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <button class="hamburger" id="hamburger">
+                <span></span><span></span><span></span>
+            </button>
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Басты бет</a></li>
-                    <li><a href="about.html">Ақын туралы</a></li>
+                    <li><a href="about.html" class="active">Ақын туралы</a></li>
                     <li><a href="works.html">Еңбектері</a></li>
                     <li><a href="gibratnama.html">Ғибратнама</a></li>
                     <li><a href="comic.html">Комикс</a></li>
@@ -28,48 +30,75 @@
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">Мәшһүр Жүсіп Көпейұлы (1858–1931)</h2>
+        <h1 class="page-title">Дала Данагөйі</h1>
         
-        <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem;">
-            <div style="flex: 1; min-width: 300px;">
-                <img src="assets/img/mashhur-portrait.jpg" alt="Мәшһүр Жүсіп" style="border: 4px solid var(--accent-gold); width: 100%;">
+        <div style="display: flex; gap: 3rem; flex-wrap: wrap; margin-bottom: 4rem; align-items: center;">
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <img src="./assets/img/mashhur-portrait.jpg" alt="Мәшһүр Жүсіп" style="border-radius: 20px; box-shadow: var(--shadow-hover); border: 4px solid var(--white); width: 100%; max-width: 400px;">
+                <p style="margin-top: 1rem; color: var(--text-light); font-style: italic; font-size: 0.9rem;">«Өзімдікі дейтін өмірім жоқ, халқымдыкі»</p>
             </div>
+            
             <div style="flex: 2; min-width: 300px;">
-                <h3>Өмірбаян қысқаша</h3>
-                <p>Мәшһүр Жүсіп Көпейұлы – қазақтың аса көрнекті ойшылы, фольклортанушысы, этнографы, тарихшысы және ақыны. Ол жастайынан білімге құштар болып, араб, парсы, шағатай тілдерін меңгерген. Бүкіл ғұмырын қазақ халқының ауыз әдебиеті үлгілерін, шежірелерін және тарихи мұраларын жинауға арнаған.</p>
+                <h2 style="color: var(--accent-red); font-size: 2.2rem; margin-bottom: 0.5rem;">Мәшһүр Жүсіп Көпейұлы</h2>
+                <h3 style="color: var(--accent-gold); font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 500;">(1858 – 1931)</h3>
+                
+                <p style="margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8;">
+                    <strong>Азан шақырып қойған есімі — Адам Жүсіп.</strong> Ол қазақтың аса көрнекті ойшылы, фольклортанушысы, этнографы және әулиесі. Оның «Мәшһүр» (арабшадан аударғанда — <i>атақты, белгілі</i>) атануының өзіндік тарихы бар. 9 жасында халық алдында қисса-дастандарды жатқа айтып, жұртты тамсантқан балаға белгілі би Мұса Шорманұлы риза болып: <strong>«Бұл өзі мәшһүр бала екен!»</strong> — деп батасын берген екен.
+                </p>
+                <p style="margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8;">
+                    Ол араб, парсы, шағатай тілдерін жетік меңгеріп, Бұхара мен Ташкенттегі жоғары діни оқу орындарында білім алды. Бірақ ол тек дінмен шектелмей, бүкіл ғұмырын қазақ халқының жоғалып бара жатқан ауыз әдебиеті үлгілерін, шежірелерін және тарихи мұраларын қағазға түсіруге арнады.
+                </p>
             </div>
         </div>
 
-        <h3>Өмір жолы (Таймлайн)</h3>
-        <div class="timeline">
+        <div class="quote-card" style="background: linear-gradient(135deg, var(--white) 0%, #fcf7eb 100%); margin-bottom: 4rem;">
+            <h3 style="color: var(--text-main); margin-bottom: 1rem;">Көріпкелдік қасиеті мен әулиелігі</h3>
+            <p style="font-size: 1.15rem; color: var(--text-light); line-height: 1.8; position: relative; z-index: 1;">
+                Мәшһүр Жүсіптің тағы бір ерекшелігі — оның сәуегейлігі мен әулиелігі. Ол өзінің қай күни, қай жылы дүниеден өтетінін бір жыл бұрын дәл болжап білген. Тіпті көзі тірісінде өзіне арнап зират (мәшайық) соқтырып, жаназасын өзіне-өзі оқытқан адам ретінде тарихта қалды. Ол 73 жасында, өзі айтқандай, 1931 жылы күзде дүниеден озды.
+            </p>
+        </div>
+
+        <h2 style="font-size: 2.2rem; margin-bottom: 2rem; color: var(--text-main); text-align: center;">Өмір белестері</h2>
+        
+        <div class="timeline" style="max-width: 900px; margin: 0 auto;">
             <div class="timeline-item">
                 <div class="timeline-year">1858 жыл</div>
-                <p>Баянауыл өңірінде дүниеге келді.</p>
+                <p>Баянауыл өңірінде, Қызылтау бөктеріндегі Найзатас деген жерде (қазіргі Павлодар облысы, Мәшһүр Жүсіп ауылы) дүниеге келді.</p>
             </div>
+            
             <div class="timeline-item">
-                <div class="timeline-year">1870 жылдар</div>
-                <p>Бұқарада, Ташкентте медреседе білім алды.</p>
+                <div class="timeline-year">1867 жыл (9 жас)</div>
+                <p>Халық оның талантына тәнті болып, Мұса Шорманұлының батасымен «Мәшһүр» (атақты) деген лақап атқа ие болды.</p>
             </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-year">1870–1874 жылдар</div>
+                <p>Қамариддин хазіреттен сауат ашып, кейін Бұхара, Ташкент, Түркістан қалаларындағы медреселерде терең білім алды.</p>
+            </div>
+            
             <div class="timeline-item">
                 <div class="timeline-year">1887–1890 жылдар</div>
-                <p>Қазақ даласын аралап, ауыз әдебиеті мұраларын қағазға түсіре бастады.</p>
+                <p>Сарыарқа, Жетісу, Оңтүстік Қазақстан өңірлерін жаяу аралап, ауыз әдебиеті мұраларын, шежірелер мен айтыстарды хатқа түсіре бастады.</p>
             </div>
+            
             <div class="timeline-item">
                 <div class="timeline-year">1907 жыл</div>
-                <p>Қазан қаласында "Сарыарқаның кімдікі екендігі", "Тірлікте көп жасағандықтан көрген бір тамашамыз" атты кітаптары жарық көрді.</p>
+                <p>Қазан қаласында Құсайын Асайыновтың баспасынан ақынның алғашқы кітаптары: «Хал-ахуал», «Сарыарқаның кімдікі екендігі», «Тірлікте көп жасағандықтан көрген бір тамашамыз» жарық көрді.</p>
             </div>
+            
             <div class="timeline-item">
                 <div class="timeline-year">1931 жыл</div>
-                <p>73 жасында дүниеден озды. Өз қабірін тірі кезінде дайындатып, ескерткіш орнаттырған.</p>
+                <p>73 жасында дүниеден озды. Өз қабірін тірі кезінде дайындатып, ескерткіш орнаттырған. Қазіргі таңда оның кесенесі үлкен зиярат орнына айналған.</p>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Ғылыми-танымдық жоба. Темиржанов Дармен. Ұлттық гимназия. </p>
         </div>
     </footer>
-    <script src="assets/js/main.js"></script>
+
+    <script src="./assets/js/main.js?v=3"></script>
 </body>
 </html>
