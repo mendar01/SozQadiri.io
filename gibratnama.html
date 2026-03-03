@@ -5,6 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ғибратнама талдауы - Мәшһүр Жүсіп</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Арнайы "Ғибратнама" бетіне арналған қосымша стильдер */
+        .analysis-block {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #2563eb;
+            transition: transform 0.3s ease;
+        }
+        
+        .analysis-block:hover {
+            transform: translateX(5px);
+        }
+
+        .analysis-title {
+            color: #1e293b;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+        }
+
+        /* Кесте дизайны */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #fff;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 0 1px #e2e8f0;
+        }
+        
+        .data-table th {
+            background: #2563eb;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e2e8f0;
+            color: #475569;
+        }
+        
+        .data-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Символдар тізімі */
+        .symbol-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .symbol-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+            color: #475569;
+        }
+        
+        .symbol-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        .symbol-list strong {
+            color: #1e293b;
+        }
+
+        /* Қорытынды блогы */
+        .conclusion-box {
+            background: #f0fdf4;
+            border-left: 5px solid #22c55e;
+            padding: 25px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #166534;
+            line-height: 1.7;
+        }
+        
+        .conclusion-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Жүктеу батырмасын ортаға қою */
+        .download-wrapper {
+            text-align: center; 
+            margin-bottom: 2.5rem;
+            margin-top: 1rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -28,57 +129,64 @@
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">«Ғибратнама» талдауы</h2>
+        <h2 class="page-title" style="text-align: center; margin-bottom: 10px;">«Ғибратнама» талдауы</h2>
         
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <a href="assets/docs/zhoba.pdf" class="btn" download>Ғылыми жобаны жүктеу (PDF)</a>
+        <div class="download-wrapper">
+            <a href="assets/docs/zhoba.pdf" class="btn" download>📄 Ғылыми жобаны жүктеу (PDF)</a>
         </div>
 
-        <h3>а) Шығарманың сипаты</h3>
-        <p>«Ғибратнама» – адамзатқа өмірлік бағдар беретін баяннама. Бұл шығармада сөздің қадірі мен жауапкершілігі, адамның ішкі рухани әлемі мен сыртқы материалдық дүние арасындағы күрес суреттеледі.</p>
-        <br>
+        <div class="analysis-block">
+            <h3 class="analysis-title">а) Шығарманың сипаты</h3>
+            <p>«Ғибратнама» – адамзатқа өмірлік бағдар беретін баяннама. Бұл шығармада сөздің қадірі мен жауапкершілігі, адамның ішкі рухани әлемі мен сыртқы материалдық дүние арасындағы күрес суреттеледі.</p>
+        </div>
 
-        <h3>ә) Бұлбұл мен Қаршыға диалогі</h3>
-        <p>Ақын бұлбұл мен қаршыға бейнелері арқылы екі түрлі дүниетанымды қарама-қарсы қояды.</p>
-        <table class="data-table">
-            <thead>
-                <tr>
-                    <th>Бұлбұл (Руханият)</th>
-                    <th>Қаршыға (Материалдық әлем)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Өнердің, сөздің, тазалықтың символы</td>
-                    <td>Күштің, жыртқыштықтың, пайданың символы</td>
-                </tr>
-                <tr>
-                    <td>Жаны сұлулыққа, «қызыл гүлге» ғашық</td>
-                    <td>Қанға, етке құмар, дүниеқоңыз</td>
-                </tr>
-                <tr>
-                    <td>Адамның ар-ұжданы мен биік мұраты</td>
-                    <td>Нәпсі мен өткінші дүние қызығы</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="analysis-block">
+            <h3 class="analysis-title">ә) Бұлбұл мен Қаршыға диалогі</h3>
+            <p>Ақын бұлбұл мен қаршыға бейнелері арқылы екі түрлі дүниетанымды қарама-қарсы қояды.</p>
+            
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Бұлбұл (Руханият)</th>
+                        <th>Қаршыға (Материалдық әлем)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Өнердің, сөздің, тазалықтың символы</td>
+                        <td>Күштің, жыртқыштықтың, пайданың символы</td>
+                    </tr>
+                    <tr>
+                        <td>Жаны сұлулыққа, «қызыл гүлге» ғашық</td>
+                        <td>Қанға, етке құмар, дүниеқоңыз</td>
+                    </tr>
+                    <tr>
+                        <td>Адамның ар-ұжданы мен биік мұраты</td>
+                        <td>Нәпсі мен өткінші дүние қызығы</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h3>б) Шығармадағы негізгі символдар</h3>
-        <ul>
-            <li><strong>«Қызыл гүл»</strong> – Идеал, абсолюттік ақиқат, Құдайға деген махаббат.</li>
-            <li><strong>«Қызыл тіл»</strong> – Шешендік, шындықты айтушы құрал. Тілдің қаруы да, шипасы да бар екендігі меңзеледі.</li>
-            <li><strong>«Тор/ау»</strong> – Осы жалған дүниенің алдамшы қызықтары, адам жанын байлайтын нәпсі торлары.</li>
-        </ul>
-        <br>
+        <div class="analysis-block">
+            <h3 class="analysis-title">б) Шығармадағы негізгі символдар</h3>
+            <ul class="symbol-list">
+                <li><strong>«Қызыл гүл»</strong> – Идеал, абсолюттік ақиқат, Құдайға деген махаббат.</li>
+                <li><strong>«Қызыл тіл»</strong> – Шешендік, шындықты айтушы құрал. Тілдің қаруы да, шипасы да бар екендігі меңзеледі.</li>
+                <li><strong>«Тор/ау»</strong> – Осы жалған дүниенің алдамшы қызықтары, адам жанын байлайтын нәпсі торлары.</li>
+            </ul>
+        </div>
 
-        <h3>в) Қорытынды түйін</h3>
-        <p>Мәшһүр Жүсіп бұл шығармасы арқылы адамдарды тек тән азығын ойлайтын «қаршыға» болмай, жан азығын іздейтін «бұлбұл» болуға шақырады. Нағыз бостандық тордан құтылу емес, сол тордың ішінде жүріп те рухтың тазалығын сақтай білу.</p>
-        <p>Ақынның «Ғибратнамасы» ғасырлар өтсе де өзектілігін жоймайтын, әр ұрпаққа ой салар рухани темірқазық болып қала бермек.</p>
+        <div class="conclusion-box">
+            <h3 class="analysis-title" style="border-bottom: none; color: #166534; margin-bottom: 10px;">в) Қорытынды түйін</h3>
+            <p>Мәшһүр Жүсіп бұл шығармасы арқылы адамдарды тек тән азығын ойлайтын «қаршыға» болмай, жан азығын іздейтін «бұлбұл» болуға шақырады. Нағыз бостандық тордан құтылу емес, сол тордың ішінде жүріп те рухтың тазалығын сақтай білу.</p>
+            <p>Ақынның «Ғибратнамасы» ғасырлар өтсе де өзектілігін жоймайтын, әр ұрпаққа ой салар рухани темірқазық болып қала бермек.</p>
+        </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Темиржанов Дармен. Ұлттық гимназия.</p>
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
