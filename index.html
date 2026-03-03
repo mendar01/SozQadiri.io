@@ -5,6 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Мәшһүр Жүсіп Көпейұлы - Рухани мұра</title>
     <link rel="stylesheet" href="./assets/css/style.css?v=3">
+    <style>
+        /* Басты беттің (Hero) дұрыс орналасуы үшін стильдер */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            padding: 40px 0 60px 0;
+            flex-wrap: wrap; /* Телефонда астына түсуі үшін */
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            color: #3E2723;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-text h1 span {
+            color: #C89F59;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* 9:16 видеоға арналған блок */
+        .hero-video {
+            flex-basis: 320px; /* Видеоның ені тұрақты болады */
+            flex-shrink: 0;
+            text-align: center;
+            margin: 0 auto;
+        }
+        
+        /* Ғибратнама баннері */
+        .gibratnama-banner {
+            background: #FAF8F5; 
+            padding: 4rem 2rem; 
+            border-radius: 20px; 
+            box-shadow: 0 4px 15px rgba(93, 64, 55, 0.08); 
+            text-align: center; 
+            margin-bottom: 4rem;
+            border: 1px solid #eaeaeb;
+            border-top: 5px solid #C89F59;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -29,67 +89,72 @@
         </div>
     </header>
 
-    <main class="container hero">
-        <div class="hero-text">
-            <h1>Мәшһүр Жүсіп Көпейұлының <span>Рухани Мұрасы</span></h1>
-            <p>Қазақтың аса көрнекті ойшылы, этнограф, тарихшы және ақын. Ол бүкіл ғұмырын Ұлы Даланың ауыз әдебиетін, тарихы мен шежіресін жинап, кейінгі ұрпаққа аманат етуге арнады.</p>
-            
-            <a href="about.html" class="btn">Өмірбаянын оқу</a>
-            <a href="works.html" class="btn btn-outline">Еңбектерімен танысу</a>
-            
-        </div>
-        <div class="hero-video" style="text-align: center; margin: 2rem 0;">
-            <iframe 
-                width="315" 
-                height="560" 
-                src="https://www.youtube.com/embed/XYgkZc2sDzE" 
-                title="Мәшһүр Жүсіп AI аватары" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen
-                style="border-radius: 12px; box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); max-width: 100%;">
-            </iframe>
-            
-            <p class="disclaimer" style="margin-top: 15px; color: #64748b; font-size: 0.95rem;">
-                Ескерту: бұл — AI көмегімен жасалған бейнелік аватар.
-            </p>
-        </div>
-        
-    <section class="container page-section">
-        <h2 class="page-title">Ұлт тарихындағы орны</h2>
-        <div class="card-grid">
-            <div class="card">
-                <h3>Фольклортанушы</h3>
-                <p>Қазақ даласын жаяу аралап, мыңдаған ертегі, аңыз, батырлық жырлар мен айтыстарды хатқа түсірді. Оның арқасында көптеген ұлттық жауһарлар жойылып кетпей, сақталып қалды.</p>
+    <main>
+        <section class="container hero-section">
+            <div class="hero-text">
+                <h1>Мәшһүр Жүсіп Көпейұлының <span>Рухани Мұрасы</span></h1>
+                <p>Қазақтың аса көрнекті ойшылы, этнограф, тарихшы және ақын. Ол бүкіл ғұмырын Ұлы Даланың ауыз әдебиетін, тарихы мен шежіресін жинап, кейінгі ұрпаққа аманат етуге арнады.</p>
+                
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn">Өмірбаянын оқу</a>
+                    <a href="works.html" class="btn btn-outline">Еңбектерімен танысу</a>
+                </div>
             </div>
-            <div class="card">
-                <h3>Философ және Ақын</h3>
-                <p>Ислам философиясы мен қазақтың дәстүрлі дүниетанымын шебер ұштастырды. Адамның ішкі тазалығы, ар-ұждан және рухани кемелдену туралы терең ойлар қалдырды.</p>
-            </div>
-            <div class="card">
-                <h3>Тарихшы-Шежіреші</h3>
-                <p>Қазақ руларының шығу тегін, хандар мен билердің тарихын зерттеп, баға жетпес шежірелік еңбектер жазды. Бұл деректер бүгінгі тарих ғылымы үшін өте құнды.</p>
-            </div>
-        </div>
-    </section>
 
-    <section class="container page-section" style="background: var(--white); padding: 4rem; border-radius: 20px; box-shadow: var(--shadow-soft); text-align: center; margin-bottom: 4rem;">
-        <h2 style="font-size: 2.5rem; color: var(--text-main); margin-bottom: 1rem;">«Ғибратнама» — Ар мен Нәпсі күресі</h2>
-        <p style="font-size: 1.2rem; color: var(--text-light); max-width: 800px; margin: 0 auto 2rem;">
-            Мәшһүр Жүсіптің ең терең философиялық шығармаларының бірі. Біз бұл шығарманы заманауи форматта талдап, жастарға түсінікті болуы үшін арнайы <strong>визуалды комикс</strong> дайындадық.
-        </p>
-        <a href="gibratnama.html" class="btn">Ғылыми талдау</a>
-        <a href="comic.html" class="btn btn-outline">Комиксті көру</a>
-    </section>
+            <div class="hero-video">
+                <iframe 
+                    width="315" 
+                    height="560" 
+                    src="https://www.youtube.com/embed/XYgkZc2sDzE" 
+                    title="Мәшһүр Жүсіп AI аватары" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen
+                    style="border-radius: 12px; box-shadow: 0 10px 20px rgba(93, 64, 55, 0.15); max-width: 100%;">
+                </iframe>
+                
+                <p class="disclaimer" style="margin-top: 15px; color: #64748b; font-size: 0.85rem; font-style: italic;">
+                    Ескерту: бұл — AI көмегімен жасалған бейнелік аватар.
+                </p>
+            </div>
+        </section>
+        
+        <section class="container page-section">
+            <h2 class="page-title" style="text-align: center; margin-bottom: 30px;">Ұлт тарихындағы орны</h2>
+            <div class="card-grid">
+                <div class="card" style="border-top: 4px solid #5D4037;">
+                    <h3 style="color: #3E2723;">Фольклортанушы</h3>
+                    <p>Қазақ даласын жаяу аралап, мыңдаған ертегі, аңыз, батырлық жырлар мен айтыстарды хатқа түсірді. Оның арқасында көптеген ұлттық жауһарлар жойылып кетпей, сақталып қалды.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid #5D4037;">
+                    <h3 style="color: #3E2723;">Философ және Ақын</h3>
+                    <p>Ислам философиясы мен қазақтың дәстүрлі дүниетанымын шебер ұштастырды. Адамның ішкі тазалығы, ар-ұждан және рухани кемелдену туралы терең ойлар қалдырды.</p>
+                </div>
+                <div class="card" style="border-top: 4px solid #5D4037;">
+                    <h3 style="color: #3E2723;">Тарихшы-Шежіреші</h3>
+                    <p>Қазақ руларының шығу тегін, хандар мен билердің тарихын зерттеп, баға жетпес шежірелік еңбектер жазды. Бұл деректер бүгінгі тарих ғылымы үшін өте құнды.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container gibratnama-banner">
+            <h2 style="font-size: 2.2rem; color: #3E2723; margin-top: 0; margin-bottom: 1rem;">«Ғибратнама» — Ар мен Нәпсі күресі</h2>
+            <p style="font-size: 1.1rem; color: #4a4a4a; max-width: 800px; margin: 0 auto 2rem; line-height: 1.6;">
+                Мәшһүр Жүсіптің ең терең философиялық шығармаларының бірі. Біз бұл шығарманы заманауи форматта талдап, жастарға түсінікті болуы үшін арнайы <strong>визуалды комикс</strong> дайындадық.
+            </p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="gibratnama.html" class="btn">Ғылыми талдау</a>
+                <a href="comic.html" class="btn btn-outline" style="background: transparent; border: 2px solid #5D4037; color: #5D4037;">Комиксті көру</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Ғылыми-танымдық жоба. Темиржанов Дармен. Ұлттық гимназия. </p>
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Ғылыми-танымдық жоба. Темиржанов Дармен. Ұлттық гимназия.</p>
         </div>
     </footer>
 
     <script src="./assets/js/main.js?v=3"></script>
 </body>
 </html>
-
-
