@@ -3,130 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мәшһүр Жүсіп - Шығармалары</title>
+    <title>Еңбектері - Мәшһүр Жүсіп</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Базовые стили */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8fafc;
-            color: #1e293b;
-            margin: 0;
-            padding: 40px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #0f172a;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            color: #64748b;
-            margin-bottom: 40px;
-        }
-
-        /* Сетка работ */
-        .works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-        }
-
-        /* Карточка работы */
-        .work-card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-top: 4px solid #2563eb; /* Небольшой акцент сверху карточки */
-        }
-
-        .work-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
-        .work-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            color: #1e293b;
-        }
-
-        .work-desc {
-            color: #475569;
-            font-size: 0.95rem;
-            margin-bottom: 24px;
-            line-height: 1.6;
-        }
-
-        /* Идентичные кнопки Gibratnama */
-        .btn-gibratnama {
-            display: inline-block;
-            width: 100%;
-            padding: 12px 0;
-            background-color: #2563eb; 
+        /* Тек қана хабарлама (Toast) мен белсенді емес батырмаға арналған шағын стиль */
+        .btn.coming-soon {
+            background-color: #9ca3af; /* Сұр түс */
             color: #ffffff;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: 8px;
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-            font-size: 1rem;
+            font-family: inherit;
+            font-size: inherit;
         }
-
-        .btn-gibratnama:hover {
-            background-color: #1d4ed8;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        .btn.coming-soon:hover {
+            background-color: #6b7280;
+            transform: none; /* Батырма секірмеуі үшін */
         }
-
-        /* Кнопка для недобавленных вещей */
-        .btn-gibratnama.coming-soon {
-            background-color: #e2e8f0;
-            color: #64748b;
-            box-shadow: none;
-        }
-
-        .btn-gibratnama.coming-soon:hover {
-            background-color: #cbd5e1;
-        }
-
-        /* Уведомление на казахском */
         #toast {
             visibility: hidden;
             min-width: 250px;
             background-color: #1e293b;
             color: #fff;
             text-align: center;
-            border-radius: 12px;
+            border-radius: 8px;
             padding: 16px 24px;
             position: fixed;
-            z-index: 1000;
-            bottom: 40px;
+            z-index: 9999;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 1rem;
-            font-weight: 500;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            font-size: 16px;
             opacity: 0;
             transition: opacity 0.3s, bottom 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
-
         #toast.show {
             visibility: visible;
             opacity: 1;
@@ -135,52 +45,104 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">Мәшһүр Жүсіп</a>
+            <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Басты бет</a></li>
+                    <li><a href="about.html">Ақын туралы</a></li>
+                    <li><a href="works.html">Еңбектері</a></li>
+                    <li><a href="gibratnama.html">Ғибратнама</a></li>
+                    <li><a href="comic.html">Комикс</a></li>
+                    <li><a href="quotes.html">Дәйексөздер</a></li>
+                    <li><a href="project.html">Жоба</a></li>
+                    <li><a href="sources.html">Дереккөздер</a></li>
+                    <li><a href="contact.html">Байланыс</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <div class="container">
-        <h2 class="section-title">Мәшһүр Жүсіптің еңбектері</h2>
-        <p class="section-subtitle">Ұлы ойшылдың мұрасымен танысыңыз</p>
+    <main class="container page-section">
+        <h2 class="page-title">Мұрасы мен шығармалары</h2>
         
-        <div class="works-grid">
-            <div class="work-card">
-                <div>
-                    <h3 class="work-title">Өлеңдері мен дастандары</h3>
-                    <p class="work-desc">Ақынның қоғам, өмір, дін және адамгершілік туралы жазған лирикалық туындылары.</p>
-                </div>
-                <a href="#" class="btn-gibratnama">Оқу (Читать)</a>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Фольклорлық жинақтары</h3>
+                <p>Халық ауыз әдебиетінің інжу-маржандарын: ертегілер, аңыздар, батырлық жырлар мен айтыстарды хатқа түсіріп, сақтап қалды.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Оқу</button>
+            </div>
+            
+            <div class="card">
+                <h3>Діни-философиялық трактаттары</h3>
+                <p>Ислам дінінің негіздері, софылық ағымдар және адамгершілік, имандылық тақырыптарындағы терең ойлары.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Оқу</button>
+            </div>
+            
+            <div class="card">
+                <h3>«Ғибратнама» (Баяннама)</h3>
+                <p>Адам өмірінің мәні, ар-ұждан, дүние мен ақыреттің арақатынасы туралы философиялық шығарма.</p>
+                <br>
+                <a href="gibratnama.html" class="btn">Толық талдау</a>
+            </div>
+            
+            <div class="card">
+                <h3>Шежірелер</h3>
+                <p>Қазақ руларының шығу тегі, тарихи тұлғалар мен хандар туралы құнды деректер жинағы.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Ашу</button>
             </div>
 
-            <div class="work-card">
-                <div>
-                    <h3 class="work-title">Тарихи шежірелер</h3>
-                    <p class="work-desc">Қазақ руларының шығу тегі мен тарихы туралы жинақтаған құнды мәліметтері.</p>
-                </div>
-                <a href="#" class="btn-gibratnama">Оқу (Читать)</a>
+            <div class="card">
+                <h3>Өлеңдері мен толғаулары</h3>
+                <p>Ақынның өмір, заман, адамгершілік пен қоғамдағы әділетсіздік туралы жазған өткір жырлары.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Оқу</button>
             </div>
 
-            <div class="work-card">
-                <div>
-                    <h3 class="work-title">Діни-философиялық толғаулары</h3>
-                    <p class="work-desc">Ислам діні мен қазақ дүниетанымын ұштастырған терең философиялық еңбектері.</p>
-                </div>
-                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу (Открыть)</button>
+            <div class="card">
+                <h3>Тарихи жырлар</h3>
+                <p>Қазақ даласында болған тарихи оқиғалар мен батырлардың ерлігін баяндайтын эпикалық туындылар.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Оқу</button>
             </div>
 
-            <div class="work-card">
-                <div>
-                    <h3 class="work-title">Ауыз әдебиеті үлгілері</h3>
-                    <p class="work-desc">Ел аузынан жинап, хатқа түсірген ертегілер, аңыздар мен мақал-мәтелдер жинағы.</p>
-                </div>
-                <button class="btn-gibratnama coming-soon" onclick="showToast()">Ашу (Открыть)</button>
+            <div class="card">
+                <h3>Мақал-мәтелдер жинағы</h3>
+                <p>Ел аузынан жинап, қағазға түсірген, терең мағыналы әрі тәрбиелік мәні зор нақыл сөздер.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Ашу</button>
+            </div>
+
+            <div class="card">
+                <h3>Шығыс әдебиетінен аудармалар</h3>
+                <p>Шығыс шайырларының шығармалары мен араб-парсы тілдеріндегі діни қиссалардың қазақша нұсқалары.</p>
+                <br>
+                <button class="btn coming-soon" onclick="showToast()">Оқу</button>
             </div>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+        </div>
+    </footer>
 
     <div id="toast">Бұл бөлім жақында қосылады ⏳</div>
 
+    <script src="assets/js/main.js"></script>
     <script>
+        // Хабарламаны шығаратын функция
         function showToast() {
             const toast = document.getElementById("toast");
             toast.className = "show";
+            
+            // 3 секундтан кейін жоғалып кетеді
             setTimeout(function(){ 
                 toast.className = toast.className.replace("show", ""); 
             }, 3000);
