@@ -5,6 +5,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Байланыс - Мәшһүр Жүсіп</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Байланыс бетіне арналған арнайы стильдер */
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: #FAF8F5; /* Ашық беж фон */
+            padding: 40px 30px;
+            border-radius: 12px;
+            border-top: 5px solid #5D4037; /* Қоңыр сызық */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info h3 {
+            color: #3E2723;
+            font-size: 1.6rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .info-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-list li {
+            margin-bottom: 15px;
+            color: #4a4a4a;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-list strong {
+            color: #5D4037;
+        }
+
+        .contact-form-container {
+            flex: 1.5;
+            min-width: 300px;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eaeaeb;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .contact-form label {
+            font-weight: 600;
+            color: #3E2723;
+            font-size: 0.95rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            color: #1e293b;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            background-color: #f8fafc;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: #C89F59;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(200, 159, 89, 0.15);
+        }
+
+        .btn-submit {
+            background-color: #5D4037;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: #3E2723;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(93, 64, 55, 0.2);
+        }
+
+        /* Хабарлама жіберілді деген хабарлама үшін (Toast) */
+        #success-toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #166534; /* Жасыл түс */
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 16px 24px;
+            position: fixed;
+            z-index: 1000;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        #success-toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -21,34 +169,80 @@
                     <li><a href="quotes.html">Дәйексөздер</a></li>
                     <li><a href="project.html">Жоба</a></li>
                     <li><a href="sources.html">Дереккөздер</a></li>
-                    <li><a href="contact.html">Байланыс</a></li>
+                    <li><a href="contact.html" class="active">Байланыс</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container page-section">
-        <h2 class="page-title">Байланыс</h2>
+        <h2 class="page-title" style="text-align: center; margin-bottom: 10px;">Байланыс</h2>
+        <p style="text-align: center; color: #64748b; margin-bottom: 2rem;">Ғылыми жоба бойынша сұрақтарыңыз болса, пікір қалдырыңыз</p>
         
-        <form class="contact-form" action="mailto:sizdin_poshtanyz@example.com" method="post" enctype="text/plain">
-            <label for="name">Аты-жөніңіз:</label>
-            <input type="text" id="name" name="name" required placeholder="Мысалы: Асан Үсенов">
+        <div class="contact-wrapper">
+            
+            <div class="contact-info">
+                <h3>Жоба авторы</h3>
+                <p>Бұл веб-сайт Мәшһүр Жүсіп Көпейұлының мұрасын заманауи технологиялар арқылы дәріптеу мақсатында жасалған ғылыми-танымдық жоба.</p>
+                <ul class="info-list">
+                    <li>👨‍💻 <strong>Автор:</strong> Темиржанов Дармен</li>
+                    <li>🏫 <strong>Оқу орны:</strong> Ұлттық гимназия</li>
+                    <li>📅 <strong>Жыл:</strong> 2026</li>
+                    <li>📧 <strong>Пошта:</strong> darmen.project@gmail.com</li> </ul>
+            </div>
 
-            <label for="email">Электронды пошта:</label>
-            <input type="email" id="email" name="email" required placeholder="email@example.com">
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form">
+                    
+                    <div class="form-group">
+                        <label for="name">Аты-жөніңіз:</label>
+                        <input type="text" id="name" name="name" required placeholder="Мысалы: Асан Үсенов">
+                    </div>
 
-            <label for="message">Хабарлама:</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Пікіріңіз немесе сұрағыңызды жазыңыз..."></textarea>
+                    <div class="form-group">
+                        <label for="email">Электронды пошта:</label>
+                        <input type="email" id="email" name="email" required placeholder="email@example.com">
+                    </div>
 
-            <button type="submit" class="btn">Жіберу</button>
-        </form>
+                    <div class="form-group">
+                        <label for="message">Хабарлама:</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Пікіріңіз немесе сұрағыңызды жазыңыз..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">📨 Хабарламаны жіберу</button>
+                </form>
+            </div>
+
+        </div>
     </main>
 
+    <div id="success-toast">Хабарлама сәтті жіберілді! ✅</div>
+
     <footer>
-        <div class="container">
-            <p>&copy; 2024 Мәшһүр Жүсіп Көпейұлы мұрасы.</p>
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Мәшһүр Жүсіп Көпейұлы мұрасы. Темиржанов Дармен. Ұлттық гимназия.</p>
         </div>
     </footer>
     <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            // Браузер бетті жаңартып жібермеуі үшін
+            event.preventDefault();
+            
+            const toast = document.getElementById('success-toast');
+            
+            // Форма ішіндегі мәліметтерді тазалау (жіберілгендей әсер қалдыру)
+            this.reset();
+            
+            // Хабарламаны көрсету
+            toast.classList.add('show');
+            
+            // 3 секундтан соң жасыру
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        });
+    </script>
 </body>
 </html>
